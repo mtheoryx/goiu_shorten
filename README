@@ -1,0 +1,15 @@
+# GoIU Shorten
+
+## Installation
+
+	gem install goiu_shorten
+	
+## Usage
+
+	require 'goiu_shorten'
+	
+	# Decode (expand) a short URL
+	GoiuShorten.expand 'short_url_here'
+	
+	# Encode (shorten) a full URL
+	GoiuShorten.shorten 'long_url_here'
