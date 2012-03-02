@@ -1,11 +1,20 @@
 require 'savon'
 
+# Disable Savon logging
+Savon.configure do |config|
+  config.log = false
+end
+# Disable HTTPI logging
+HTTPI.log = false
+
 module GoiuShorten
   class GoiuShortenApi
     def initialize
-      @client = Savon::Client.new do
+	  @client = Savon::Client.new do
+		
         wsdl.document = 'https://go.iu.edu/GoIUWebService.asmx?WSDL'
       end
+	
     end
 
     def expand(*short_url)
@@ -42,6 +51,7 @@ module GoiuShorten
 
       if (result =~ /^\*\*ERR\*\*\sPasscode/)
         raise ArgumentError, "Not a valid passcode."
+		exit
       end
 
       result
