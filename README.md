@@ -8,8 +8,8 @@
 
 	require 'goiu_shorten'
 	
-	# Decode (expand) a short URL
+	# Expand a short URL
 	GoiuShorten.expand 'short_url_here'
 	
-	# Encode (shorten) a full URL
+	# Shorten a long URL
 	GoiuShorten.shorten 'long_url_here, passcode'

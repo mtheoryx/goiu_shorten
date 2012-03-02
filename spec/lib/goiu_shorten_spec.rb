@@ -49,7 +49,9 @@ describe "GoiuShorten shorten feature" do
   end
 
   it "should raise an error if you don't give it any arguments" do
-    expect {GoiuShorten.shorten()}.to raise_error(ArgumentError)
+    expect {
+      GoiuShorten.shorten()
+    }.to raise_error(ArgumentError)
   end
 
   it "should raise an error if you mix up the order of your arguments" do

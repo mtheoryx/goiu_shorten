@@ -5,6 +5,7 @@ module GoiuShorten
   def self.expand(short_url)
     GoiuShortenApi.new.expand(short_url)
   end
+  
   def self.shorten(long_url, passcode)
     GoiuShortenApi.new.shorten(long_url, passcode)
   end

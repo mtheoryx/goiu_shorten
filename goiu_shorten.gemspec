@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = GoiuShorten::VERSION
   s.authors     = ["David Poindexter"]
   s.email       = ["drpoindexter@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/mtheoryx/goiu_shorten"
   s.summary     = %q{API interface to IU GoIU URL shortening service.}
-  s.description = %q{Provides easy interraction with the IU GoIU URL shortening service.}
+  s.description = %q{Provides easy interaction with the IU GoIU URL shortening service.}
 
   s.rubyforge_project = "goiu_shorten"
 
@@ -19,10 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rspec"
-  #s.add_development_dependency "yaml"
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 
-
-  s.add_runtime_dependency "savon"
+  s.add_runtime_dependency 'savon'
 end

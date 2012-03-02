@@ -42,10 +42,7 @@ Thumbs.db
 #######################
 *.esproj
 *.idea
-<<<<<<< HEAD
-=======
 
 # Project-specific files #
 ##########################
->>>>>>> refs/heads/expand_url
 config.yaml
