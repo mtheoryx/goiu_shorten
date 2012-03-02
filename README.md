@@ -13,3 +13,5 @@
 	
 	# Shorten a long URL
 	GoiuShorten.shorten 'long_url_here', 'passcode'
+	
+## For more information, see the Github Wiki.
