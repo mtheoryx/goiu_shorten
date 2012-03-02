@@ -3,7 +3,7 @@ require 'yaml'
 
 describe "GoiuShorten expand" do
 
-  before(:each) do
+  before(:all) do
     @sample_correct_long_url = "http://www.indiana.edu/~podcast/search/"
     @sample_correct_short_url = "http://go.iu.edu/4Gb"
     @sample_wrong_long_url = "http://davidrpoindexter.com/"
@@ -37,13 +37,16 @@ describe "GoiuShorten expand" do
 end
 
 describe "GoiuShorten shorten feature" do
-  before(:each) do
+
+  before(:all) do
       @sample_correct_long_url = "http://www.indiana.edu/~podcast/search/"
       @sample_correct_short_url = "http://go.iu.edu/4Gb"
       @sample_wrong_long_url = "http://davidrpoindexter.com/"
       @sample_wrong_short_url = "http://go.iu.edu/i5"
       @sample_wrong_passcode = "11111111-1111-1111-1111-111111111111"
-    end
+      config = YAML.load_file("config.yaml")
+      @sample_correct_passcode = config["config"]["passcode"]
+  end
 
   it "should raise an error if you don't give it any arguments" do
     expect {GoiuShorten.shorten()}.to raise_error(ArgumentError)
@@ -67,14 +70,11 @@ describe "GoiuShorten shorten feature" do
     }.to raise_error(ArgumentError, "Not a valid passcode.")
   end
 
-  it "should return a short url when given a long url" do
-    config = YAML.load_file("config.yaml")
-    @sample_correct_passcode = config["config"]["passcode"]
-    short_url = GoiuShorten.shorten(@sample_correct_long_url, @sample_correct_passcode)
-    short_url.should == @sample_correct_short_url
+  it "should return a short url when given a long url to shorten" do
+    GoiuShorten.shorten(@sample_correct_long_url, @sample_correct_passcode).should =~ /^http:\/\/go.iu.edu\//
   end
 
-  it "should return a correct url when given a long url to shorten" do
-    pending
-  end
+  it "should return a short url when given a long url" do
+      GoiuShorten.shorten(@sample_correct_long_url, @sample_correct_passcode).should == @sample_correct_short_url
+    end
 end

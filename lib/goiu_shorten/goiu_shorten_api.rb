@@ -29,7 +29,7 @@ module GoiuShorten
         exit
       end
 
-      unless passcode =~ /\d{8}.*/
+      unless passcode =~ /^\w{8}-\w{4}-\w{4}-\w{4}-\w{12}/
         raise ArgumentError, "You must supply a passcode to shorten URLs."
         exit
       end
@@ -44,7 +44,7 @@ module GoiuShorten
         raise ArgumentError, "Not a valid passcode."
       end
 
-      puts result.inspect
+      result
     end
   end
 
