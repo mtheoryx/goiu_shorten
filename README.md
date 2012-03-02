@@ -12,4 +12,4 @@
 	GoiuShorten.expand 'short_url_here'
 	
 	# Shorten a long URL
-	GoiuShorten.shorten 'long_url_here, passcode'
+	GoiuShorten.shorten 'long_url_here', 'passcode'
